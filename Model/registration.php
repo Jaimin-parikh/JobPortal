@@ -15,7 +15,8 @@ class Registration{
         $query = "INSERT INTO registration(`username`, `email`, `password`) VALUES ('$username','  $email',' $password');";
         $conn->query($query);
         if($conn){
-            echo "done";
+            header('Location: ../View/index.html');
+            exit();
         }
     }
 }

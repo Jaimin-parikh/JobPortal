@@ -9,4 +9,5 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 $data->register($username, $email, $password);
+
 ?>
