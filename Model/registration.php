@@ -12,7 +12,7 @@ class Registration
     public $email;
     public $password;
 
-    public function check_user($username)
+    public static function check_user($username)
     {
         global $conn;
         $query = "SELECT * FROM registration WHERE username = '$username'";
