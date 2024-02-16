@@ -2,8 +2,6 @@
 
 namespace registration;
 
-use mysqli;
-
 require('connection.php');
 
 $conn = \connection\build_connection();
