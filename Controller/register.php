@@ -7,7 +7,7 @@ $data = new Registration();
 
 $username = $_POST['username'];
 $email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $register = new Registration();
 $register->register_user($username, $email, $password);

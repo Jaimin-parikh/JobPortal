@@ -28,7 +28,7 @@ class Registration
         if (Registration::check_user($username)) {
             echo "<h1 style=\"text-align : center\">User Already Exists!</h1>";
         } else {
-            $query = "INSERT INTO registration(`username`, `email`, `password`) VALUES ('$username','  $email',' $password');";
+            $query = "INSERT INTO registration(`username`, `email`, `password`) VALUES ('$username','$email','$password');";
             $conn->query($query);
             if ($conn) {
                 header('Location: ../View/index.html');
