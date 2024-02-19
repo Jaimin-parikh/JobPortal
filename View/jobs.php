@@ -22,7 +22,7 @@
             font-size: x-large;
             border: 1px solid black;
             display: inline-block;
-            height: 500px;
+            height: mt_getrandmax;
             margin-top: 10px;
             padding: 10px;
             border-radius: 0.1cm;
@@ -32,7 +32,7 @@
             display: inline-block;
             background-color: rgb(219, 216, 216);
             width: 1020px;
-            height: 500px;
+            height: 100%;
             margin-top: 10px;
             margin-left: 10px;
             padding-left: 20px;
@@ -56,21 +56,18 @@
 
         .jobpost {
             border: 1px solid white;
-            padding: 10px;
             margin-top: 20px;
             margin-left: 30px;
             background-color: white;
             border-radius: 0.1cm;
             width: 900px;
+            height: fit-content;
         }
 
         .qual {
             padding-left: 30px;
             font-size: larger;
             padding-top: 20px;
-        }
-        .list{
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -80,25 +77,24 @@
     <div class="content">
         <div class="verticalnav">This is a vertical bar</div>
         <div class="jobcontainer">
-                <table class="jobpost">
+            <?php
+            require_once('../Model/post.php');
+            $post = new Post();
+            $result = $post->display();
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<table class='jobpost'>
                     <tr>
-                        <th class="jobtitle">Staff Software Engineer, Machine Learning :</th>
+                        <th class='jobtitle'>{$row['title']}</th>
                     </tr>
-                    <tr>
-                        <td class="company">&nbsp&nbsp🏢 Google</td>
-                    </tr>
-                    <tr>
-                        <td class="qual">Minimum qualifications :<ul>
-                                <li class="list">Bachelor's degree or equivalent practical experience.</li>
-                                <li class="list">8 years of experience in software development, and with data structures/algorithms.
-                                </li>
-                                <li class="list">5 years of experience testing, and launching software products,</li>
-                                <li class="list">5 years of experience with machine learning algorithms </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr><td><input type="submit" value="apply"> </td></tr>
-                </table>
+                    <tr><td class='company'>&nbsp&nbsp🏢 {$row['company']}</td></tr>
+                    <tr><td class='qual'> {$row['remote']}</td></tr>
+                    <tr><td class='qual'> {$row['type']}</td></tr>
+                    <tr><td class='qual'> {$row['description']}</td></tr>
+                    
+                    <tr><td><br><input type='submit' value='apply'> </td></tr>
+                </table><br>";
+            }
+            ?>
             </form>
         </div>
     </div>
