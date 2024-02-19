@@ -8,10 +8,6 @@ $conn = \connection\build_connection();
 
 class Registration
 {
-    public $username;
-    public $email;
-    public $password;
-
     public static function check_user($username)
     {
         global $conn;
@@ -22,17 +18,23 @@ class Registration
         } else
             return false;
     }
-    public function register_user($username, $email, $password)
+    public function register_user($data)
     {
         global $conn;
+        $username = $data['username'];
         if (Registration::check_user($username)) {
             echo "<h1 style=\"text-align : center\">User Already Exists!</h1>";
         } else {
-            $query = "INSERT INTO registration(`username`, `email`, `password`) VALUES ('$username','$email','$password');";
+            $keys = implode(",",array_keys($data));
+            $values = '"'.implode('","',array_values($data)).'"';
+            $query = "INSERT INTO registration ($keys) VALUES ($values);";
             $conn->query($query);
             if ($conn) {
                 header('Location: ../View/index.html');
                 exit();
+            }
+            else{
+                echo "something happened";
             }
         }
     }
