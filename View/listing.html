@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting</title>
+</head>
+
+<body>
+    <div style="width: 500px; height: 100vh;margin: auto;">
+    <h1 style="text-align: center;">Post a New Job!<br></h1>
+    <h2>
+            <form action="../Controller/listing.php" method="post">Job Title: <input type="text" name="title"><br><br>
+                Company Name: <input type="text" name="company" id=""><br><br>
+                Remote Job? <input type="radio" name="remote" id="" value="yes">Yes
+                <input type="radio" name="remote" id="" value="no">No<br><br>
+                Employement Type: <select name="type" id="">
+                    <option value="full-time">full-time</option>
+                    <option value="part-time">part-time</option>
+                    <option value="intern">intern</option>
+                </select><br><br>
+                <div style="display: inline-block;padding-bottom: 15px;">Job Description:</div> <textarea name="description" id="" cols="100" rows="10"></textarea> 
+                <input type="submit" value="Post" style="font-size: large;">
+            </form>
+        </div>
+ </h2>
+</body>
+
+</html>

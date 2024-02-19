@@ -15,4 +15,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $register = new Registration();
-$register->register_user($data);
+$register->register_user($data,'registration');

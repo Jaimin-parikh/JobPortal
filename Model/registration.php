@@ -4,6 +4,7 @@ namespace registration;
 
 require('connection.php');
 
+
 $conn = \connection\build_connection();
 
 class Registration
@@ -18,24 +19,14 @@ class Registration
         } else
             return false;
     }
-    public function register_user($data)
+    public function register_user($data,$table_name)
     {
-        global $conn;
         $username = $data['username'];
         if (Registration::check_user($username)) {
-            echo "<h1 style=\"text-align : center\">User Already Exists!</h1>";
+            echo "<h1 style=\"text-align : center\">User Already Exists!<br><a href= '../View/index.html'>Login Here!</a></h1>";
         } else {
-            $keys = implode(",",array_keys($data));
-            $values = '"'.implode('","',array_values($data)).'"';
-            $query = "INSERT INTO registration ($keys) VALUES ($values);";
-            $conn->query($query);
-            if ($conn) {
-                header('Location: ../View/index.html');
-                exit();
-            }
-            else{
-                echo "something happened";
-            }
+            $redirect = 'Location: ../View/index.html';
+            \connection\insert($data,$table_name,$redirect);
         }
     }
 }

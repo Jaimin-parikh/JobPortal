@@ -10,5 +10,18 @@ function build_connection(){
      $conn = new \mysqli($server, $username, $password, $database);
      return $conn;
 }
-
+function insert($data,$table_name,$redirect){
+     $conn = build_connection();
+     $keys = implode(",",array_keys($data));
+            $values = '"'.implode('","',array_values($data)).'"';
+            $query = "INSERT INTO $table_name ($keys) VALUES ($values);";
+            $conn->query($query);
+            if ($conn) {
+                header($redirect);
+                exit();
+            }
+            else{
+                echo "something happened";
+            }
+}
 ?>
