@@ -14,6 +14,10 @@ class Post{
             $query = "SELECT * FROM post";
             // var_dump($conn);
             $result = $conn->query($query);
-            return $result;
+            
+            while($row = mysqli_fetch_assoc($result)){
+                $rows[] = $row;
+            }
+            return $rows;
         }
 }

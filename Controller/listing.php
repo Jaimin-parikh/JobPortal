@@ -2,6 +2,10 @@
 
 require_once('../Model/post.php');
 
+if(empty($_POST['title'])){
+    echo "Enter info";
+    die();
+}
 $data = [
     "title" => $_POST['title'],
     "company" => $_POST['company'],
