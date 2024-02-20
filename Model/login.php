@@ -23,7 +23,7 @@ class Login
             if (password_verify($input, $password)) {
                 // if login user is employer then redirect him to job posting page
                 if ($identity == 'employee') {
-                    header('Location: ../View/jobs.html');
+                    header('Location: ../View/jobs.php');
                 }
                  
                 // else  redirect him to job listin page 
