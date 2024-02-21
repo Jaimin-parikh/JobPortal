@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+
+require_once('../Model/post.php');
+
+session_start();
+if(isset($_SESSION["username"])){
+echo "<!DOCTYPE html>
 <html lang='en'>
 
 <head>
@@ -13,9 +19,7 @@
     </div>
     <div class='content'>
         <div class='verticalnav'>This is a vertical bar</div>
-        <div class='jobcontainer'>
-            <?php
-            require_once('../Model/post.php');
+        <div class='jobcontainer'>";
             $post = new Jobs();
             $results = $post->display();
             // print_r($results);
@@ -38,10 +42,14 @@
                     <tr><td><br><input type='submit' value='One-Tap Appy'> </td></tr>
                 </table><br>";
             }
-            ?>
-            </form>
+
+            echo " </form>
         </div>
     </div>
 </body>
 
-</html>
+</html>";}
+
+else{
+    echo "You just logged out";
+}
