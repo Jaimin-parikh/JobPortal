@@ -3,8 +3,9 @@
 require('../Model/registration.php');
 
 use registration\Registration as Registration;
+use registration\Users;
 
-$data = new Registration();
+$data = new Users();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = [
         "username" => $_POST['username'],
@@ -14,5 +15,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 }
 
-$register = new Registration();
-$register->register_user($data,'registration');
+$register = new Users();
+$register->register_user($data,'users');

@@ -14,5 +14,5 @@ $data = [
     "description" => $_POST['description'],
 ];
 
-$post = new Post();
-$post->insert_into_post($data);
+$post = new Jobs();
+$post->insert_into_jobs($data);

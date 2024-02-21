@@ -16,7 +16,7 @@
         <div class="jobcontainer">
             <?php
             require_once('../Model/post.php');
-            $post = new Post();
+            $post = new Jobs();
             $results = $post->display();
             // print_r($results);
             function modify(string $a){
@@ -33,7 +33,7 @@
                     <tr><td class='company'>&nbsp&nbsp🏢 {$value['company']}</td></tr>
                     <tr><td class='qual'> Remote: ".modify($value['remote'])."</td></tr>
                     <tr><td class='qual'> Employement type: ".modify($value['type'])."</td></tr>
-                    <tr><td class='qual'> {$value['description']}</td></tr>
+                    <tr><td class='qual'> ". str_replace("-","<br>-",$value['description'])."</td></tr>
                     
                     <tr><td><br><input type='submit' value='One-Tap Appy'> </td></tr>
                 </table><br>";
