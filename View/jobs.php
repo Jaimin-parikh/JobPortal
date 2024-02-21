@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Jobs</title>
-    <link rel="stylesheet" href="../View/jobs.css">
+    <link rel='stylesheet' href='../View/jobs.css'>
 </head>
 
 <body>
-    <div class="nav">GG Careers <button class= "details"><a href="addDetails.php" style="text-decoration: none;color:black">Add details</a></button><button style="margin-left:5px"><a href="../Controller/logout.php" style="text-decoration: none;color:black;">Logout</a></button>
+    <div class='nav'>GG Careers <button class= 'details'><a href='addDetails.php' style='text-decoration: none;color:black'>Add details</a></button><button style='margin-left:5px'><a href='../Controller/logout.php' style='text-decoration: none;color:black;'>Logout</a></button>
     </div>
-    <div class="content">
-        <div class="verticalnav">This is a vertical bar</div>
-        <div class="jobcontainer">
+    <div class='content'>
+        <div class='verticalnav'>This is a vertical bar</div>
+        <div class='jobcontainer'>
             <?php
             require_once('../Model/post.php');
             $post = new Jobs();
