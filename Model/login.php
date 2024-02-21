@@ -24,17 +24,20 @@ class Login
                 // if login user is employer then redirect him to job posting page
                 if ($identity == 'employee') {
                     header('Location: ../View/jobs.php');
+                    exit();
                 }
                  
                 // else  redirect him to job listin page 
                 else {
                     header('Location: ../View/listing.html');
+                    exit();
                 }
             } else {
                 echo "<h1 style = \"text-align : center\">Wrong password !</h1>";
             }
         } else {
             header('Location: ../View/signup.html');
+            exit(); 
         }
     }
 }
