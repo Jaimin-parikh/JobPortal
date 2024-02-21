@@ -1,5 +1,9 @@
 <?php
 
+require_once('../Model/connection.php');
+use function connection\insert as insert;
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
    
     $resume = $_FILES['resume'];
@@ -8,12 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     move_uploaded_file($resume["tmp_name"], $path);
 
     $data = [
-    // "user_id" => $_SESSION['user']['id'],
     "first_name" => $_POST['fname'],
     "last_name" => $_POST['lname'],
     "city" => $_POST['city'],
     "state" => $_POST['state'],
     "phoneno" => $_POST['phoneno'],
-    "resume" => $path
+    "resume" => $path,
+    "user_id" => $_SESSION["user_id"],
     ];
+
+    insert($data,"employees","Location : ../View/successful.html");
 }
